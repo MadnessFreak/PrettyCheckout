@@ -15,6 +15,7 @@ namespace PrettyCheckout.Dialogs.Controls
         bool allowSpace = false;
         bool allowNegativeSign = false;
         bool allowGroupSeparator = false;
+        bool useCurrency = false;
 
         // Restricts the entry of characters to digits (including hex), the negative sign, 
         // the decimal point, and editing keystrokes (backspace). 
@@ -61,6 +62,11 @@ namespace PrettyCheckout.Dialogs.Controls
                 e.Handled = true;
                 //    MessageBeep();
             }
+
+            //if (useCurrency && !Text.EndsWith("€"))
+            //{
+            //    Text = Text + " €";
+            //}
         }
 
         public int IntValue
@@ -110,7 +116,7 @@ namespace PrettyCheckout.Dialogs.Controls
                 return this.allowNegativeSign;
             }
         }
-
+        
         public bool AllowGroupSeparator
         {
             set
@@ -121,6 +127,19 @@ namespace PrettyCheckout.Dialogs.Controls
             get
             {
                 return this.allowGroupSeparator;
+            }
+        }
+
+        public bool UseCurrency
+        {
+            set
+            {
+                this.useCurrency = value;
+            }
+
+            get
+            {
+                return this.useCurrency;
             }
         }
     }
