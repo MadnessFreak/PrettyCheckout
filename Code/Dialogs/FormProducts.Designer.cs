@@ -155,6 +155,7 @@
             this._buttonCancel.TabStop = false;
             this._buttonCancel.Text = "Schließen";
             this._buttonCancel.UseVisualStyleBackColor = true;
+            this._buttonCancel.Click += new System.EventHandler(this._buttonCancel_Click);
             // 
             // FormProducts
             // 

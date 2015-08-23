@@ -48,8 +48,8 @@ namespace PrettyCheckout.Dialogs
         {
             if (_buttonAccept.Tag == null) // user data null?
             {
-                Total = _textBoxTotalSum.Text.AsDecimal();
-                Given = _textBoxGiven.Text.AsDecimal();
+                Total = _textBoxTotalSum.Text.AsMoney();
+                Given = _textBoxGiven.Text.AsMoney();
 
                 ReturnMoney = Given - Total;
 

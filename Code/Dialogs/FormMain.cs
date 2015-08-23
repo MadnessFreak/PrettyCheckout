@@ -37,10 +37,10 @@ namespace PrettyCheckout.Dialogs
         {
             _textBoxProduct.Focus();
             
-            Environment.Products.Add(new Product(1, "Wasser", 1.00m));
-            Environment.Products.Add(new Product(2, "Saft", 1.50m));
-            Environment.Products.Add(new Product(3, "Cola", 2.00m));
-            Environment.Products.Add(new Product(4, "Bier", 1.50m));
+            //Environment.Products.Add(new Product(1, "Wasser", 1.00m));
+            //Environment.Products.Add(new Product(2, "Saft", 1.50m));
+            //Environment.Products.Add(new Product(3, "Cola", 2.00m));
+            //Environment.Products.Add(new Product(4, "Bier", 1.50m));
         }
 
         private void ClearAll()
@@ -154,7 +154,7 @@ namespace PrettyCheckout.Dialogs
             {
                 var listViewItem = _listView.Items[product.ListViewKey];
                 var amount = listViewItem.SubItems.At(ProductListViewOrder.Amount).Text.AsInteger();
-                var price = listViewItem.SubItems.At(ProductListViewOrder.Price).Text.AsDecimal();
+                var price = listViewItem.SubItems.At(ProductListViewOrder.Price).Text.AsMoney();
 
                 amount++;
 

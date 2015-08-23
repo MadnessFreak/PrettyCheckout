@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\DataReader.cs" />
     <Compile Include="Data\Product.cs" />
     <Compile Include="Data\ProductEnvironment.cs" />
     <Compile Include="Data\ProductHelper.cs" />

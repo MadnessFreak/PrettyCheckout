@@ -42,18 +42,25 @@ namespace PrettyCheckout.Dialogs
                 _textBoxDesc.Text = Product.Description;
             }
 
+            if (_textBoxID.TextLength < 1)
+            {
+                var max = Program.Environment.MaxBy(p => p.Index).Index;
+                _textBoxID.Text = (max + 1).ToString();
+            }
+
             _textBoxName.Select();
         }
 
         private void _buttonAccept_Click(object sender, EventArgs e)
         {
+            var index = _textBoxID.Text.AsInteger();
             var name = _textBoxName.Text;
-            var price = _textBoxPrice.Text.AsDecimal();
+            var price = _textBoxPrice.Text.AsMoney();
             var desc = _textBoxDesc.Text;
 
             if (Product == null)
             {
-                Product = new Product(5, name, price);
+                Product = new Product(index, name, price);
             }
             else
             {

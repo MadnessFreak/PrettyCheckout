@@ -98,5 +98,11 @@ namespace PrettyCheckout.Dialogs
                 Reload();
             }
         }
+
+        private void _buttonCancel_Click(object sender, EventArgs e)
+        {
+            DataReader.Save(DataReader.DatabasePath);
+            Close();
+        }
     }
 }

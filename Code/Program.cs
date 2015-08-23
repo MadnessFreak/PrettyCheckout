@@ -28,6 +28,8 @@ namespace PrettyCheckout
         [STAThread]
         static void Main()
         {
+            DataReader.Load(DataReader.DatabasePath);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Dialogs.FormMain());
