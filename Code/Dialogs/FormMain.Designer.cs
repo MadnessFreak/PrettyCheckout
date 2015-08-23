@@ -235,13 +235,13 @@
             // 
             // _buttonNumF3
             // 
-            this._buttonNumF3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._buttonNumF3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._buttonNumF3.Location = new System.Drawing.Point(255, 112);
             this._buttonNumF3.Name = "_buttonNumF3";
             this._buttonNumF3.Size = new System.Drawing.Size(75, 38);
             this._buttonNumF3.TabIndex = 19;
             this._buttonNumF3.TabStop = false;
-            this._buttonNumF3.Text = "F3";
+            this._buttonNumF3.Text = "Suche (F3)";
             this._buttonNumF3.UseVisualStyleBackColor = true;
             // 
             // _buttonNumNine

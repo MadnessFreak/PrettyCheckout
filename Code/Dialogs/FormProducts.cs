@@ -69,19 +69,25 @@ namespace PrettyCheckout.Dialogs
             }
         }
 
-        private void _buttonAdd_Click(object sender, EventArgs e)
+        private void ButtonAddClick(object sender, EventArgs e)
         {
             ButtonProductChange();
         }
 
-        private void _buttonEdit_Click(object sender, EventArgs e)
+        private void ButtonEditClick(object sender, EventArgs e)
         {
             ButtonProductChange(SelectedProduct);
         }
 
-        private void _buttonDelete_Click(object sender, EventArgs e)
+        private void ButtonDeleteClick(object sender, EventArgs e)
         {
-            ButtonProductChange(SelectedProduct);
+            if (SelectedProduct == null) return;
+
+            if (MessageBox.Show("Willst du das Produkt \"" + SelectedProduct.Name + "\" wirklich löschen?", "Wirklich löschen?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Environment.Products.Remove(SelectedProduct);
+                Reload();
+            }
         }
 
         private void ButtonProductChange()
@@ -94,12 +100,19 @@ namespace PrettyCheckout.Dialogs
             var productView = new FormProductView(product);
             if (productView.ShowDialog() == DialogResult.OK)
             {
-                Environment.Products.Add(productView.Product);
+                if (!Environment.HasProduct(productView.Product.Index))
+                {
+                    Environment.Products.Add(productView.Product);
+                }
+                else
+                {
+                    Environment.Products[productView.Product.Index - 1] = productView.Product;
+                }
                 Reload();
             }
         }
 
-        private void _buttonCancel_Click(object sender, EventArgs e)
+        private void ButtonCancelClick(object sender, EventArgs e)
         {
             DataReader.Save(DataReader.DatabasePath);
             Close();

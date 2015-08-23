@@ -23,6 +23,12 @@ namespace PrettyCheckout.Data
         // Methods
         public static void Load(string path)
         {
+            if (!System.IO.File.Exists(path))
+            {
+                MessageBox.Show("Data file not found - " + path);
+                return;
+            }
+
             var document = XDocument.Load(path);
 
             if (document.Root.Attribute("Version").Value != DataReaderFileVersion)

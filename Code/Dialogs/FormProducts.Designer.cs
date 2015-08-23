@@ -116,7 +116,7 @@
             this._buttonAdd.TabStop = false;
             this._buttonAdd.Text = "Hinzufügen";
             this._buttonAdd.UseVisualStyleBackColor = true;
-            this._buttonAdd.Click += new System.EventHandler(this._buttonAdd_Click);
+            this._buttonAdd.Click += new System.EventHandler(this.ButtonAddClick);
             // 
             // _buttonEdit
             // 
@@ -129,7 +129,7 @@
             this._buttonEdit.TabStop = false;
             this._buttonEdit.Text = "Bearbeiten";
             this._buttonEdit.UseVisualStyleBackColor = true;
-            this._buttonEdit.Click += new System.EventHandler(this._buttonEdit_Click);
+            this._buttonEdit.Click += new System.EventHandler(this.ButtonEditClick);
             // 
             // _buttonDelete
             // 
@@ -142,7 +142,7 @@
             this._buttonDelete.TabStop = false;
             this._buttonDelete.Text = "Löschen";
             this._buttonDelete.UseVisualStyleBackColor = true;
-            this._buttonDelete.Click += new System.EventHandler(this._buttonDelete_Click);
+            this._buttonDelete.Click += new System.EventHandler(this.ButtonDeleteClick);
             // 
             // _buttonCancel
             // 
@@ -155,7 +155,7 @@
             this._buttonCancel.TabStop = false;
             this._buttonCancel.Text = "Schließen";
             this._buttonCancel.UseVisualStyleBackColor = true;
-            this._buttonCancel.Click += new System.EventHandler(this._buttonCancel_Click);
+            this._buttonCancel.Click += new System.EventHandler(this.ButtonCancelClick);
             // 
             // FormProducts
             // 

@@ -58,6 +58,22 @@ namespace PrettyCheckout.Dialogs
             var price = _textBoxPrice.Text.AsMoney();
             var desc = _textBoxDesc.Text;
 
+            if (index < 0)
+            {
+                MessageBox.Show("Ungültige Produkt-ID");
+                return;
+            }
+            if (string.IsNullOrEmpty(name))
+            {
+                MessageBox.Show("Ungültiger Name");
+                return;
+            }
+            if (price <= 0.00m)
+            {
+                MessageBox.Show("Ungültiger Preis");
+                return;
+            }
+
             if (Product == null)
             {
                 Product = new Product(index, name, price);
