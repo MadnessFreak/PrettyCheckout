@@ -41,8 +41,6 @@
             this._buttonProducts = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
-            this._textBoxProduct = new PrettyCheckout.Dialogs.Controls.NumericTextBox();
-            this._textBoxAmount = new PrettyCheckout.Dialogs.Controls.NumericTextBox();
             this._buttonNumF3 = new System.Windows.Forms.Button();
             this._buttonNumNine = new System.Windows.Forms.Button();
             this._buttonNumEight = new System.Windows.Forms.Button();
@@ -74,6 +72,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this._textBoxProduct = new PrettyCheckout.Dialogs.Controls.NumericTextBox();
+            this._textBoxAmount = new PrettyCheckout.Dialogs.Controls.NumericTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -232,38 +232,6 @@
             this.button9.TabStop = false;
             this.button9.Text = "Zwischensumme (F5)";
             this.button9.UseVisualStyleBackColor = true;
-            // 
-            // _textBoxProduct
-            // 
-            this._textBoxProduct.AllowGroupSeparator = false;
-            this._textBoxProduct.AllowNegativeSign = false;
-            this._textBoxProduct.AllowSpace = false;
-            this._textBoxProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._textBoxProduct.Location = new System.Drawing.Point(12, 118);
-            this._textBoxProduct.Name = "_textBoxProduct";
-            this._textBoxProduct.Size = new System.Drawing.Size(156, 26);
-            this._textBoxProduct.TabIndex = 0;
-            this._textBoxProduct.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this._textBoxProduct.UseCurrency = false;
-            this._textBoxProduct.TextChanged += new System.EventHandler(this.TextBoxProductTextChanged);
-            this._textBoxProduct.Enter += new System.EventHandler(this.TextBoxProductEnter);
-            this._textBoxProduct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxProductKeyPress);
-            this._textBoxProduct.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TextBoxProductKeyUp);
-            // 
-            // _textBoxAmount
-            // 
-            this._textBoxAmount.AllowGroupSeparator = false;
-            this._textBoxAmount.AllowNegativeSign = false;
-            this._textBoxAmount.AllowSpace = false;
-            this._textBoxAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._textBoxAmount.Location = new System.Drawing.Point(194, 118);
-            this._textBoxAmount.Name = "_textBoxAmount";
-            this._textBoxAmount.Size = new System.Drawing.Size(55, 26);
-            this._textBoxAmount.TabIndex = 20;
-            this._textBoxAmount.Text = "1";
-            this._textBoxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this._textBoxAmount.UseCurrency = false;
-            this._textBoxAmount.Enter += new System.EventHandler(this.TextBoxAmountEnter);
             // 
             // _buttonNumF3
             // 
@@ -567,6 +535,7 @@
             this._buttonBillHistory.TabStop = false;
             this._buttonBillHistory.Text = "Historie";
             this._buttonBillHistory.UseVisualStyleBackColor = true;
+            this._buttonBillHistory.Click += new System.EventHandler(this._buttonBillHistory_Click);
             // 
             // button4
             // 
@@ -611,6 +580,38 @@
             this.button1.TabStop = false;
             this.button1.Text = "unbelegt";
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // _textBoxProduct
+            // 
+            this._textBoxProduct.AllowGroupSeparator = false;
+            this._textBoxProduct.AllowNegativeSign = false;
+            this._textBoxProduct.AllowSpace = false;
+            this._textBoxProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._textBoxProduct.Location = new System.Drawing.Point(12, 118);
+            this._textBoxProduct.Name = "_textBoxProduct";
+            this._textBoxProduct.Size = new System.Drawing.Size(156, 26);
+            this._textBoxProduct.TabIndex = 0;
+            this._textBoxProduct.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this._textBoxProduct.UseCurrency = false;
+            this._textBoxProduct.TextChanged += new System.EventHandler(this.TextBoxProductTextChanged);
+            this._textBoxProduct.Enter += new System.EventHandler(this.TextBoxProductEnter);
+            this._textBoxProduct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxProductKeyPress);
+            this._textBoxProduct.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TextBoxProductKeyUp);
+            // 
+            // _textBoxAmount
+            // 
+            this._textBoxAmount.AllowGroupSeparator = false;
+            this._textBoxAmount.AllowNegativeSign = false;
+            this._textBoxAmount.AllowSpace = false;
+            this._textBoxAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._textBoxAmount.Location = new System.Drawing.Point(194, 118);
+            this._textBoxAmount.Name = "_textBoxAmount";
+            this._textBoxAmount.Size = new System.Drawing.Size(55, 26);
+            this._textBoxAmount.TabIndex = 20;
+            this._textBoxAmount.Text = "1";
+            this._textBoxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this._textBoxAmount.UseCurrency = false;
+            this._textBoxAmount.Enter += new System.EventHandler(this.TextBoxAmountEnter);
             // 
             // FormMain
             // 

@@ -48,6 +48,8 @@ namespace PrettyCheckout.Dialogs
 
         private void ClearAll()
         {
+            Sum = 0;
+
             _textBoxTotalSum.Text = ProductHelper.DecimalFormat;
             _textBoxGiven.Text = ProductHelper.DecimalFormat;
             _textBoxReturnMoney.Text = ProductHelper.DecimalFormat;
@@ -408,6 +410,11 @@ namespace PrettyCheckout.Dialogs
         private void _textBoxAmount_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void _buttonBillHistory_Click(object sender, EventArgs e)
+        {
+            new FormHistory().ShowDialog();
         }
     }
 }
