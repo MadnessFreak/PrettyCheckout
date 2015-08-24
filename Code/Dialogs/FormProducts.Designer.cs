@@ -35,10 +35,10 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this._buttonAdd = new System.Windows.Forms.Button();
-            this._buttonEdit = new System.Windows.Forms.Button();
-            this._buttonDelete = new System.Windows.Forms.Button();
             this._buttonCancel = new System.Windows.Forms.Button();
+            this._buttonDelete = new System.Windows.Forms.Button();
+            this._buttonEdit = new System.Windows.Forms.Button();
+            this._buttonAdd = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -106,30 +106,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Aktionen";
             // 
-            // _buttonAdd
+            // _buttonCancel
             // 
-            this._buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._buttonAdd.Location = new System.Drawing.Point(22, 24);
-            this._buttonAdd.Name = "_buttonAdd";
-            this._buttonAdd.Size = new System.Drawing.Size(156, 38);
-            this._buttonAdd.TabIndex = 24;
-            this._buttonAdd.TabStop = false;
-            this._buttonAdd.Text = "Hinzufügen";
-            this._buttonAdd.UseVisualStyleBackColor = true;
-            this._buttonAdd.Click += new System.EventHandler(this.ButtonAddClick);
-            // 
-            // _buttonEdit
-            // 
-            this._buttonEdit.Enabled = false;
-            this._buttonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._buttonEdit.Location = new System.Drawing.Point(22, 68);
-            this._buttonEdit.Name = "_buttonEdit";
-            this._buttonEdit.Size = new System.Drawing.Size(156, 38);
-            this._buttonEdit.TabIndex = 25;
-            this._buttonEdit.TabStop = false;
-            this._buttonEdit.Text = "Bearbeiten";
-            this._buttonEdit.UseVisualStyleBackColor = true;
-            this._buttonEdit.Click += new System.EventHandler(this.ButtonEditClick);
+            this._buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this._buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._buttonCancel.Location = new System.Drawing.Point(22, 290);
+            this._buttonCancel.Name = "_buttonCancel";
+            this._buttonCancel.Size = new System.Drawing.Size(156, 38);
+            this._buttonCancel.TabIndex = 27;
+            this._buttonCancel.TabStop = false;
+            this._buttonCancel.Text = "Schließen";
+            this._buttonCancel.UseVisualStyleBackColor = true;
+            this._buttonCancel.Click += new System.EventHandler(this.ButtonCancelClick);
             // 
             // _buttonDelete
             // 
@@ -144,18 +134,30 @@
             this._buttonDelete.UseVisualStyleBackColor = true;
             this._buttonDelete.Click += new System.EventHandler(this.ButtonDeleteClick);
             // 
-            // _buttonCancel
+            // _buttonEdit
             // 
-            this._buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this._buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._buttonCancel.Location = new System.Drawing.Point(22, 290);
-            this._buttonCancel.Name = "_buttonCancel";
-            this._buttonCancel.Size = new System.Drawing.Size(156, 38);
-            this._buttonCancel.TabIndex = 27;
-            this._buttonCancel.TabStop = false;
-            this._buttonCancel.Text = "Schließen";
-            this._buttonCancel.UseVisualStyleBackColor = true;
-            this._buttonCancel.Click += new System.EventHandler(this.ButtonCancelClick);
+            this._buttonEdit.Enabled = false;
+            this._buttonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._buttonEdit.Location = new System.Drawing.Point(22, 68);
+            this._buttonEdit.Name = "_buttonEdit";
+            this._buttonEdit.Size = new System.Drawing.Size(156, 38);
+            this._buttonEdit.TabIndex = 25;
+            this._buttonEdit.TabStop = false;
+            this._buttonEdit.Text = "Bearbeiten";
+            this._buttonEdit.UseVisualStyleBackColor = true;
+            this._buttonEdit.Click += new System.EventHandler(this.ButtonEditClick);
+            // 
+            // _buttonAdd
+            // 
+            this._buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._buttonAdd.Location = new System.Drawing.Point(22, 24);
+            this._buttonAdd.Name = "_buttonAdd";
+            this._buttonAdd.Size = new System.Drawing.Size(156, 38);
+            this._buttonAdd.TabIndex = 24;
+            this._buttonAdd.TabStop = false;
+            this._buttonAdd.Text = "Hinzufügen";
+            this._buttonAdd.UseVisualStyleBackColor = true;
+            this._buttonAdd.Click += new System.EventHandler(this.ButtonAddClick);
             // 
             // FormProducts
             // 
@@ -166,7 +168,9 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(680, 404);
             this.Name = "FormProducts";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Produktdatenbank";
             this.Load += new System.EventHandler(this.FormProducts_Load);
