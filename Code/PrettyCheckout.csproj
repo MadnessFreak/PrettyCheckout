@@ -47,6 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Bill.cs" />
+    <Compile Include="Data\BillEntry.cs" />
+    <Compile Include="Data\BillingHistory.cs" />
     <Compile Include="Data\DataReader.cs" />
     <Compile Include="Data\Product.cs" />
     <Compile Include="Data\ProductEnvironment.cs" />
@@ -72,6 +75,18 @@
     <Compile Include="Dialogs\FormProductView.Designer.cs">
       <DependentUpon>FormProductView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\FormSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\FormSearch.Designer.cs">
+      <DependentUpon>FormSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\FormSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\FormSettings.Designer.cs">
+      <DependentUpon>FormSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\FormSubtotal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +104,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\FormProductView.resx">
       <DependentUpon>FormProductView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\FormSearch.resx">
+      <DependentUpon>FormSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\FormSettings.resx">
+      <DependentUpon>FormSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\FormSubtotal.resx">
       <DependentUpon>FormSubtotal.cs</DependentUpon>

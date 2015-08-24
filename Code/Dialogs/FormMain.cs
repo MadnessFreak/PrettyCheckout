@@ -19,13 +19,19 @@ namespace PrettyCheckout.Dialogs
     {
         // Variables
         private bool _orderCompleted;
+        private bool _multiplySelected;
 
         // Properties
         public ProductEnvironment Environment
         {
             get { return Program.Environment; }
         }
+        public BillingHistory BillingHistory
+        {
+            get { return Program.BillingHistory; }
+        }
         public Decimal Sum { get; set; }
+        public Bill CurrentBill { get; set; }
 
         // Constructor
         public FormMain()
@@ -34,14 +40,10 @@ namespace PrettyCheckout.Dialogs
         }
 
         // Methods
-        private void FormMain_Load(object sender, EventArgs e)
+        private void FormMainLoad(object sender, EventArgs e)
         {
+            CurrentBill = new Bill();
             _textBoxProduct.Focus();
-            
-            //Environment.Products.Add(new Product(1, "Wasser", 1.00m));
-            //Environment.Products.Add(new Product(2, "Saft", 1.50m));
-            //Environment.Products.Add(new Product(3, "Cola", 2.00m));
-            //Environment.Products.Add(new Product(4, "Bier", 1.50m));
         }
 
         private void ClearAll()
@@ -55,7 +57,7 @@ namespace PrettyCheckout.Dialogs
             _listView.Items.Clear();
         }
 
-        private void _textBoxProduct_TextChanged(object sender, EventArgs e)
+        private void TextBoxProductTextChanged(object sender, EventArgs e)
         {
             var text = _textBoxProduct.Text;
             var green = Color.LightGreen;
@@ -88,7 +90,7 @@ namespace PrettyCheckout.Dialogs
             }
         }
 
-        private void _textBoxProduct_KeyPress(object sender, KeyPressEventArgs e)
+        private void TextBoxProductKeyPress(object sender, KeyPressEventArgs e)
         {
             var key = e.KeyChar;
 
@@ -109,7 +111,44 @@ namespace PrettyCheckout.Dialogs
             }
         }
 
-        private void _buttonNumEnter_Click(object sender, EventArgs e)
+        private void TextBoxProductKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F3)
+            {
+                _buttonNumF3.PerformClick();
+                e.Handled = true;
+            }
+            else if (e.KeyCode == Keys.F4)
+            {
+                _buttonProducts.PerformClick();
+                e.Handled = true;
+            }
+            else if (e.KeyCode == Keys.F5)
+            {
+                var subtotal = new FormSubtotal(Sum);
+                if (subtotal.ShowDialog() == DialogResult.OK)
+                {
+                    _textBoxReturnMoney.BackColor = Color.LightGreen;
+                    _textBoxReturnMoney.Text = subtotal.ReturnMoney.ToString(ProductHelper.DecimalFormat);
+                    _textBoxGiven.Text = subtotal.Given.ToString(ProductHelper.DecimalFormat);
+                    _orderCompleted = true;
+
+                    if (CurrentBill != null)
+                    {
+                        BillingHistory.Bills.Add(CurrentBill);
+                    }
+                }
+
+                e.Handled = true;
+            }
+            else if (e.KeyCode == Keys.F7)
+            {
+                _buttonPrint.PerformClick();
+                e.Handled = true;
+            }
+        }
+
+        private void ButtonNumEnter(object sender, EventArgs e)
         {
             if (_textBoxProduct.TextLength > 0)
             {
@@ -125,9 +164,7 @@ namespace PrettyCheckout.Dialogs
 
                     for (int i = 0; i < amount; i++)
                     {
-                        Sum += product.Price;
-
-                        InsertNewOrder(product);
+                        BuyProduct(product);
                     }
 
                     _textBoxTotalSum.Text = Sum.ToString(ProductHelper.DecimalFormat);
@@ -138,6 +175,20 @@ namespace PrettyCheckout.Dialogs
                     MessageBox.Show("Unbekannte Produkt-ID!");
                 }
             }
+        }
+
+        private void BuyProduct(Product product)
+        {
+            Sum += product.Price;
+
+            InsertNewOrder(product);
+
+            if (CurrentBill == null)
+            {
+                CurrentBill = new Bill();
+            }
+            CurrentBill.Date = DateTime.Now;
+            CurrentBill.AddProduct(product);
         }
 
         private void InsertNewOrder(Product product)
@@ -166,31 +217,14 @@ namespace PrettyCheckout.Dialogs
             {
                 _listView.Items.Add(item);
             }
-        }
+        }        
 
-        private void _textBoxProduct_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.F5)
-            {
-                var subtotal = new FormSubtotal(Sum);
-                if (subtotal.ShowDialog() == DialogResult.OK)
-                {
-                    _textBoxReturnMoney.BackColor = Color.LightGreen;
-                    _textBoxReturnMoney.Text = subtotal.ReturnMoney.ToString(ProductHelper.DecimalFormat);
-                    _textBoxGiven.Text = subtotal.Given.ToString(ProductHelper.DecimalFormat);
-                    _orderCompleted = true;
-                }
-
-                e.Handled = true;
-            }
-        }
-
-        private void button11_Click(object sender, EventArgs e)
+        private void ButtonProductsClick(object sender, EventArgs e)
         {
             new FormProducts().Show();
         }
 
-        private void _buttonPrint_Click(object sender, EventArgs e)
+        private void ButtonPrintClick(object sender, EventArgs e)
         {
             PrintDocument PrintDoc = new PrintDocument();
             PrintDialog PrintDialog = new PrintDialog();
@@ -216,7 +250,7 @@ namespace PrettyCheckout.Dialogs
             PrintPreviewDialog.ShowDialog();
         }
 
-        void PrintPage(object sender, PrintPageEventArgs e)
+        private void PrintPage(object sender, PrintPageEventArgs e)
         {
             var font = new Font("Lucida Console", 10);
             var fontb = new Font("Lucida Console", 10, FontStyle.Bold);
@@ -252,6 +286,128 @@ namespace PrettyCheckout.Dialogs
 
             e.Graphics.DrawLine(new Pen(Color.Black), new Point(0, 0), new Point(100, 100));
             e.Graphics.DrawString(buffer.ToString(), font, brush, new Point(100, 100));
+        }
+
+        private void ButtonSettingsClick(object sender, EventArgs e)
+        {
+            new FormSettings().ShowDialog();
+        }
+
+        private void ButtonSearchClick(object sender, EventArgs e)
+        {
+            var search = new FormSearch();
+            if (search.ShowDialog() == DialogResult.OK)
+            {
+                _textBoxProduct.Text = search.SelectedProduct.Index.ToString();
+                _textBoxProduct.Select();
+
+                //BuyProduct(search.SelectedProduct);
+            }
+        }
+
+        private void ButtonNumClick(int number)
+        {
+            if (_multiplySelected)
+            {
+                _textBoxAmount.AppendText(number.ToString());
+                _textBoxAmount.Focus();
+                _textBoxAmount.Select();
+            }
+            else
+            {
+                _textBoxProduct.AppendText(number.ToString());
+                _textBoxProduct.Focus();
+                _textBoxProduct.Select();
+            }
+        }
+
+        private void ButtonNumZeroClick(object sender, EventArgs e)
+        {
+            ButtonNumClick(0);
+        }
+
+        private void ButtonNumOneClick(object sender, EventArgs e)
+        {
+            ButtonNumClick(1);
+        }
+
+        private void ButtonNumTwoClick(object sender, EventArgs e)
+        {
+            ButtonNumClick(2);
+        }
+
+        private void ButtonNumThreeClick(object sender, EventArgs e)
+        {
+            ButtonNumClick(3);
+        }
+
+        private void ButtonNumFourClick(object sender, EventArgs e)
+        {
+            ButtonNumClick(4);
+        }
+
+        private void ButtonNumFiveClick(object sender, EventArgs e)
+        {
+            ButtonNumClick(5);
+        }
+
+        private void ButtonNumSixClick(object sender, EventArgs e)
+        {
+            ButtonNumClick(6);
+        }
+
+        private void ButtonNumSevenClick(object sender, EventArgs e)
+        {
+            ButtonNumClick(7);
+        }
+
+        private void ButtonNumEightClick(object sender, EventArgs e)
+        {
+            ButtonNumClick(8);
+        }
+
+        private void ButtonNumNineClick(object sender, EventArgs e)
+        {
+            ButtonNumClick(9);
+        }
+
+        private void ButtonNumCommaClick(object sender, EventArgs e)
+        {
+            _textBoxProduct.AppendText(",");
+            _textBoxProduct.Focus();
+            _textBoxProduct.Select();
+        }
+
+        private void ButtonNumCClick(object sender, EventArgs e)
+        {
+            _textBoxProduct.Clear();
+            _textBoxProduct.Focus();
+            _textBoxProduct.Select();
+        }
+
+        private void ButtonNumMultiplyClick(object sender, EventArgs e)
+        {
+            _textBoxAmount.Focus();
+        }
+
+        private void TextBoxAmountEnter(object sender, EventArgs e)
+        {
+            _multiplySelected = true;
+        }
+
+        private void TextBoxProductEnter(object sender, EventArgs e)
+        {
+            _multiplySelected = false;
+        }
+
+        private void _textBoxProduct_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void _textBoxAmount_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

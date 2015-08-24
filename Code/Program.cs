@@ -14,11 +14,13 @@ namespace PrettyCheckout
     {
         // Properties
         public static ProductEnvironment Environment { get; private set; }
+        public static BillingHistory BillingHistory { get; private set; }
 
         // Constructor
         static Program()
         {
             Environment = new ProductEnvironment();
+            BillingHistory = new BillingHistory();
         }
 
         // Methods
@@ -29,10 +31,13 @@ namespace PrettyCheckout
         static void Main()
         {
             DataReader.Load(DataReader.DatabasePath);
+            BillingHistory.Load(BillingHistory.BillingHistoryPath);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Dialogs.FormMain());
+
+            BillingHistory.Save(BillingHistory.BillingHistoryPath);
         }
     }
 }

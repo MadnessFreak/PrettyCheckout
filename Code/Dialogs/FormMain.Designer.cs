@@ -38,7 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button11 = new System.Windows.Forms.Button();
+            this._buttonProducts = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this._textBoxProduct = new PrettyCheckout.Dialogs.Controls.NumericTextBox();
@@ -69,7 +69,7 @@
             this._buttonPrint = new System.Windows.Forms.Button();
             this._buttonSettings = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this._buttonBillHistory = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -163,7 +163,7 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.button11);
+            this.groupBox2.Controls.Add(this._buttonProducts);
             this.groupBox2.Controls.Add(this.button10);
             this.groupBox2.Controls.Add(this.button9);
             this.groupBox2.Controls.Add(this._textBoxProduct);
@@ -199,17 +199,17 @@
             this.label4.TabIndex = 24;
             this.label4.Text = "x";
             // 
-            // button11
+            // _buttonProducts
             // 
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.Location = new System.Drawing.Point(12, 68);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(156, 38);
-            this.button11.TabIndex = 23;
-            this.button11.TabStop = false;
-            this.button11.Text = "Produkte (F4)";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this._buttonProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._buttonProducts.Location = new System.Drawing.Point(12, 68);
+            this._buttonProducts.Name = "_buttonProducts";
+            this._buttonProducts.Size = new System.Drawing.Size(156, 38);
+            this._buttonProducts.TabIndex = 23;
+            this._buttonProducts.TabStop = false;
+            this._buttonProducts.Text = "Produkte (F4)";
+            this._buttonProducts.UseVisualStyleBackColor = true;
+            this._buttonProducts.Click += new System.EventHandler(this.ButtonProductsClick);
             // 
             // button10
             // 
@@ -245,9 +245,10 @@
             this._textBoxProduct.TabIndex = 0;
             this._textBoxProduct.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this._textBoxProduct.UseCurrency = false;
-            this._textBoxProduct.TextChanged += new System.EventHandler(this._textBoxProduct_TextChanged);
-            this._textBoxProduct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._textBoxProduct_KeyPress);
-            this._textBoxProduct.KeyUp += new System.Windows.Forms.KeyEventHandler(this._textBoxProduct_KeyUp);
+            this._textBoxProduct.TextChanged += new System.EventHandler(this.TextBoxProductTextChanged);
+            this._textBoxProduct.Enter += new System.EventHandler(this.TextBoxProductEnter);
+            this._textBoxProduct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxProductKeyPress);
+            this._textBoxProduct.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TextBoxProductKeyUp);
             // 
             // _textBoxAmount
             // 
@@ -262,6 +263,7 @@
             this._textBoxAmount.Text = "1";
             this._textBoxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this._textBoxAmount.UseCurrency = false;
+            this._textBoxAmount.Enter += new System.EventHandler(this.TextBoxAmountEnter);
             // 
             // _buttonNumF3
             // 
@@ -273,6 +275,7 @@
             this._buttonNumF3.TabStop = false;
             this._buttonNumF3.Text = "Suche (F3)";
             this._buttonNumF3.UseVisualStyleBackColor = true;
+            this._buttonNumF3.Click += new System.EventHandler(this.ButtonSearchClick);
             // 
             // _buttonNumNine
             // 
@@ -284,6 +287,7 @@
             this._buttonNumNine.TabStop = false;
             this._buttonNumNine.Text = "9";
             this._buttonNumNine.UseVisualStyleBackColor = true;
+            this._buttonNumNine.Click += new System.EventHandler(this.ButtonNumNineClick);
             // 
             // _buttonNumEight
             // 
@@ -295,6 +299,7 @@
             this._buttonNumEight.TabStop = false;
             this._buttonNumEight.Text = "8";
             this._buttonNumEight.UseVisualStyleBackColor = true;
+            this._buttonNumEight.Click += new System.EventHandler(this.ButtonNumEightClick);
             // 
             // _buttonNumSeven
             // 
@@ -306,6 +311,7 @@
             this._buttonNumSeven.TabStop = false;
             this._buttonNumSeven.Text = "7";
             this._buttonNumSeven.UseVisualStyleBackColor = true;
+            this._buttonNumSeven.Click += new System.EventHandler(this.ButtonNumSevenClick);
             // 
             // _buttonNumSix
             // 
@@ -317,6 +323,7 @@
             this._buttonNumSix.TabStop = false;
             this._buttonNumSix.Text = "6";
             this._buttonNumSix.UseVisualStyleBackColor = true;
+            this._buttonNumSix.Click += new System.EventHandler(this.ButtonNumSixClick);
             // 
             // _buttonNumFive
             // 
@@ -328,6 +335,7 @@
             this._buttonNumFive.TabStop = false;
             this._buttonNumFive.Text = "5";
             this._buttonNumFive.UseVisualStyleBackColor = true;
+            this._buttonNumFive.Click += new System.EventHandler(this.ButtonNumFiveClick);
             // 
             // _buttonNumFour
             // 
@@ -339,6 +347,7 @@
             this._buttonNumFour.TabStop = false;
             this._buttonNumFour.Text = "4";
             this._buttonNumFour.UseVisualStyleBackColor = true;
+            this._buttonNumFour.Click += new System.EventHandler(this.ButtonNumFourClick);
             // 
             // _buttonNumMultiply
             // 
@@ -350,6 +359,7 @@
             this._buttonNumMultiply.TabStop = false;
             this._buttonNumMultiply.Text = "x";
             this._buttonNumMultiply.UseVisualStyleBackColor = true;
+            this._buttonNumMultiply.Click += new System.EventHandler(this.ButtonNumMultiplyClick);
             // 
             // _buttonNumThree
             // 
@@ -361,6 +371,7 @@
             this._buttonNumThree.TabStop = false;
             this._buttonNumThree.Text = "3";
             this._buttonNumThree.UseVisualStyleBackColor = true;
+            this._buttonNumThree.Click += new System.EventHandler(this.ButtonNumThreeClick);
             // 
             // _buttonNumTwo
             // 
@@ -372,6 +383,7 @@
             this._buttonNumTwo.TabStop = false;
             this._buttonNumTwo.Text = "2";
             this._buttonNumTwo.UseVisualStyleBackColor = true;
+            this._buttonNumTwo.Click += new System.EventHandler(this.ButtonNumTwoClick);
             // 
             // _buttonNumOne
             // 
@@ -383,6 +395,7 @@
             this._buttonNumOne.TabStop = false;
             this._buttonNumOne.Text = "1";
             this._buttonNumOne.UseVisualStyleBackColor = true;
+            this._buttonNumOne.Click += new System.EventHandler(this.ButtonNumOneClick);
             // 
             // _buttonNumEnter
             // 
@@ -394,7 +407,7 @@
             this._buttonNumEnter.TabStop = false;
             this._buttonNumEnter.Text = "ENTER";
             this._buttonNumEnter.UseVisualStyleBackColor = true;
-            this._buttonNumEnter.Click += new System.EventHandler(this._buttonNumEnter_Click);
+            this._buttonNumEnter.Click += new System.EventHandler(this.ButtonNumEnter);
             // 
             // _buttonNumC
             // 
@@ -406,6 +419,7 @@
             this._buttonNumC.TabStop = false;
             this._buttonNumC.Text = "C";
             this._buttonNumC.UseVisualStyleBackColor = true;
+            this._buttonNumC.Click += new System.EventHandler(this.ButtonNumCClick);
             // 
             // _buttonNumComma
             // 
@@ -417,6 +431,7 @@
             this._buttonNumComma.TabStop = false;
             this._buttonNumComma.Text = ",";
             this._buttonNumComma.UseVisualStyleBackColor = true;
+            this._buttonNumComma.Click += new System.EventHandler(this.ButtonNumCommaClick);
             // 
             // _buttonNumZero
             // 
@@ -428,6 +443,7 @@
             this._buttonNumZero.TabStop = false;
             this._buttonNumZero.Text = "0";
             this._buttonNumZero.UseVisualStyleBackColor = true;
+            this._buttonNumZero.Click += new System.EventHandler(this.ButtonNumZeroClick);
             // 
             // groupBox3
             // 
@@ -494,7 +510,7 @@
             this.groupBox4.Controls.Add(this._buttonPrint);
             this.groupBox4.Controls.Add(this._buttonSettings);
             this.groupBox4.Controls.Add(this.button6);
-            this.groupBox4.Controls.Add(this.button5);
+            this.groupBox4.Controls.Add(this._buttonBillHistory);
             this.groupBox4.Controls.Add(this.button4);
             this.groupBox4.Controls.Add(this.button3);
             this.groupBox4.Controls.Add(this.button2);
@@ -516,7 +532,7 @@
             this._buttonPrint.TabStop = false;
             this._buttonPrint.Text = "Drucken (F7)";
             this._buttonPrint.UseVisualStyleBackColor = true;
-            this._buttonPrint.Click += new System.EventHandler(this._buttonPrint_Click);
+            this._buttonPrint.Click += new System.EventHandler(this.ButtonPrintClick);
             // 
             // _buttonSettings
             // 
@@ -528,6 +544,7 @@
             this._buttonSettings.TabStop = false;
             this._buttonSettings.Text = "Einstellungen";
             this._buttonSettings.UseVisualStyleBackColor = true;
+            this._buttonSettings.Click += new System.EventHandler(this.ButtonSettingsClick);
             // 
             // button6
             // 
@@ -537,19 +554,19 @@
             this.button6.Size = new System.Drawing.Size(148, 38);
             this.button6.TabIndex = 6;
             this.button6.TabStop = false;
-            this.button6.Text = "0";
+            this.button6.Text = "Rabatt";
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // _buttonBillHistory
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(12, 68);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(148, 38);
-            this.button5.TabIndex = 5;
-            this.button5.TabStop = false;
-            this.button5.Text = "0";
-            this.button5.UseVisualStyleBackColor = true;
+            this._buttonBillHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._buttonBillHistory.Location = new System.Drawing.Point(12, 68);
+            this._buttonBillHistory.Name = "_buttonBillHistory";
+            this._buttonBillHistory.Size = new System.Drawing.Size(148, 38);
+            this._buttonBillHistory.TabIndex = 5;
+            this._buttonBillHistory.TabStop = false;
+            this._buttonBillHistory.Text = "Historie";
+            this._buttonBillHistory.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
@@ -613,7 +630,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pretty Checkout";
-            this.Load += new System.EventHandler(this.FormMain_Load);
+            this.Load += new System.EventHandler(this.FormMainLoad);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -662,14 +679,14 @@
         private System.Windows.Forms.Button _buttonPrint;
         private System.Windows.Forms.Button _buttonSettings;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button _buttonBillHistory;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button _buttonProducts;
         private System.Windows.Forms.Label label4;
     }
 }
