@@ -11,6 +11,7 @@ using PrettyCheckout;
 using PrettyCheckout.Data;
 using PrettyCheckout.Dialogs;
 using PrettyCheckout.Math;
+using System.Drawing.Printing;
 
 namespace PrettyCheckout.Dialogs
 {
@@ -187,6 +188,70 @@ namespace PrettyCheckout.Dialogs
         private void button11_Click(object sender, EventArgs e)
         {
             new FormProducts().Show();
+        }
+
+        private void _buttonPrint_Click(object sender, EventArgs e)
+        {
+            PrintDocument PrintDoc = new PrintDocument();
+            PrintDialog PrintDialog = new PrintDialog();
+            PrintPreviewDialog PrintPreviewDialog = new PrintPreviewDialog();
+
+            List<string> Printers = new List<string>();
+            foreach (string p in PrinterSettings.InstalledPrinters)
+            {
+                Printers.Add(p);
+            }
+
+            // Alle verfügbaren Drucker sind in Printers gespeichert, man könnte den Benutzer daraus auswählen lassen.
+            // In diesem Beispiel wird einfach immer Drucker 0 gewählt.
+            PrintDoc.PrinterSettings.PrinterName = PrinterSettings.InstalledPrinters[0];
+
+            PrintDoc.PrintPage += new PrintPageEventHandler(PrintPage);
+            //PrintDoc.Print();
+            
+            PrintDialog.Document = PrintDoc;
+            //PrintDialog.ShowDialog();
+
+            PrintPreviewDialog.Document = PrintDoc;
+            PrintPreviewDialog.ShowDialog();
+        }
+
+        void PrintPage(object sender, PrintPageEventArgs e)
+        {
+            var font = new Font("Lucida Console", 10);
+            var fontb = new Font("Lucida Console", 10, FontStyle.Bold);
+            var brush = new SolidBrush(Color.Black);
+
+            var buffer = new StringBuilder();
+            buffer.Append(string.Format("{0}\n{1}\n{2}\n\n", "Musterfirma", "Musterstrasse 1", "12345 Musterstadt"));
+            buffer.Append(string.Format("R E C H N U N G\nRechnungsnummer: {0}		  {1}\n\n", (1).ToString("000000"), DateTime.Now));
+            buffer.Append("Menge\tProdukt\t\t\t\t Preis\t   Total\n");
+            buffer.Append("-----------------------------------------------------\n");
+
+            foreach (ListViewItem product in _listView.Items)
+            {
+                var name = product.SubItems.At(ProductListViewOrder.Name).Text;
+                var price = product.SubItems.At(ProductListViewOrder.Price).Text.AsMoney();
+                var total = product.SubItems.At(ProductListViewOrder.Total).Text.AsMoney();
+                var amount = product.SubItems.At(ProductListViewOrder.Amount).Text.AsInteger();
+                var format = "0.00€";
+
+                buffer.Append(string.Format("{0}  {1} {2}  {3}\n", 
+                    amount.ToString().PadLeft(5),
+                    name.PadRight(31),
+                    price.ToString(format).PadLeft(6),
+                    total.ToString(format).PadLeft(6)
+                ));
+            }
+
+            buffer.Append("-----------------------------------------------------\n");
+            buffer.Append(string.Format("\t\t\t\tSumme:\t\t\t {0}\n", _textBoxTotalSum.Text.Replace(" ", "").PadLeft(7)));
+            buffer.Append(string.Format("\t\t\t\tBargeld:\t\t {0}\n", _textBoxGiven.Text.Replace(" ", "").PadLeft(7)));
+            buffer.Append(string.Format("\t\t\t\tZurück:\t\t {0}\n\n\n", _textBoxReturnMoney.Text.Replace(" ", "").PadLeft(7)));
+            buffer.Append("\t\tVielen Dank für Ihren Besuch");
+
+            e.Graphics.DrawLine(new Pen(Color.Black), new Point(0, 0), new Point(100, 100));
+            e.Graphics.DrawString(buffer.ToString(), font, brush, new Point(100, 100));
         }
     }
 }
