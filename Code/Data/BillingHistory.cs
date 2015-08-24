@@ -44,7 +44,7 @@ namespace PrettyCheckout.Data
                 return;
             }
 
-            Program.Environment.Products.Clear();
+            Bills.Clear();
 
             foreach (XElement element in document.Root.Descendants())
             {
@@ -64,7 +64,7 @@ namespace PrettyCheckout.Data
                             sub.Attribute("Price").Value.AsDecimal()
                         );
 
-                        bill.AddProduct(product);
+                        bill.AddProduct(product, sub.Attribute("Amount").Value.AsInteger());
                     }
 
                     Bills.Add(bill);
