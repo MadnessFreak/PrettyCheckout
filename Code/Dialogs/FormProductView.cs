@@ -44,7 +44,7 @@ namespace PrettyCheckout.Dialogs
 
             if (_textBoxID.TextLength < 1)
             {
-                var max = Program.Environment.MaxBy(p => p.Index).Index;
+                var max = Program.Environment.Products.Count < 1 ? 0 : Program.Environment.MaxBy(p => p.Index).Index;
                 _textBoxID.Text = (max + 1).ToString();
             }
 

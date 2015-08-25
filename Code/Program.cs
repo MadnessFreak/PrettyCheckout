@@ -30,6 +30,7 @@ namespace PrettyCheckout
         [STAThread]
         static void Main()
         {
+            Config.Load(Config.ConfigPath);
             DataReader.Load(DataReader.DatabasePath);
             BillingHistory.Load(BillingHistory.BillingHistoryPath);
 
@@ -38,6 +39,7 @@ namespace PrettyCheckout
             Application.Run(new Dialogs.FormMain());
 
             BillingHistory.Save(BillingHistory.BillingHistoryPath);
+            Config.Save(Config.ConfigPath);
         }
     }
 }

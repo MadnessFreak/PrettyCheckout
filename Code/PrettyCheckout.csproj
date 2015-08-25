@@ -50,6 +50,7 @@
     <Compile Include="Data\Bill.cs" />
     <Compile Include="Data\BillEntry.cs" />
     <Compile Include="Data\BillingHistory.cs" />
+    <Compile Include="Data\Config.cs" />
     <Compile Include="Data\DataReader.cs" />
     <Compile Include="Data\Product.cs" />
     <Compile Include="Data\ProductEnvironment.cs" />

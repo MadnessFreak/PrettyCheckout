@@ -18,14 +18,13 @@ namespace PrettyCheckout.Data
 
         // Constants
         public const string DataReaderFileVersion = "1.0";
-        public const string DatabasePath = "PrettyCheckoutDatabase.xml";
+        public const string DatabasePath = "ProductDatabase.xml";
 
         // Methods
         public static void Load(string path)
         {
             if (!System.IO.File.Exists(path))
             {
-                MessageBox.Show("Data file not found - " + path);
                 return;
             }
 

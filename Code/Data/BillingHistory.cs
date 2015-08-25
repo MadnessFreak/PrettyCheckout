@@ -32,7 +32,7 @@ namespace PrettyCheckout.Data
         {
             if (!System.IO.File.Exists(path))
             {
-                MessageBox.Show("Billing history file not found - " + path);
+                //MessageBox.Show("Billing history file not found - " + path);
                 return;
             }
 
