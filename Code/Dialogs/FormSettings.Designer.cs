@@ -43,7 +43,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this._textBoxCompany = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this._buttonAccept = new System.Windows.Forms.Button();
             this._tabControl.SuspendLayout();
             this._tabPage1.SuspendLayout();
@@ -57,7 +56,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this._tabControl.Controls.Add(this._tabPage1);
-            this._tabControl.Controls.Add(this.tabPage2);
             this._tabControl.Location = new System.Drawing.Point(16, 15);
             this._tabControl.Margin = new System.Windows.Forms.Padding(4);
             this._tabControl.Name = "_tabControl";
@@ -100,7 +98,7 @@
             this._textBoxDatabase.Name = "_textBoxDatabase";
             this._textBoxDatabase.Size = new System.Drawing.Size(198, 22);
             this._textBoxDatabase.TabIndex = 9;
-            this._textBoxDatabase.Text = "PrettyCheckoutDatabase.xml";
+            this._textBoxDatabase.Text = "ProductDatabase.xml";
             // 
             // label6
             // 
@@ -208,17 +206,6 @@
             this.label1.Text = "Firma:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(347, 394);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // _buttonAccept
             // 
             this._buttonAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -264,7 +251,6 @@
 
         private System.Windows.Forms.TabControl _tabControl;
         private System.Windows.Forms.TabPage _tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button _buttonAccept;
         private System.Windows.Forms.GroupBox _groupBox1;
         private System.Windows.Forms.TextBox _textBoxCity;

@@ -223,7 +223,14 @@ namespace PrettyCheckout.Dialogs
 
         private void ButtonProductsClick(object sender, EventArgs e)
         {
-            new FormProducts().Show();
+            if (new FormLogin().ShowDialog() == DialogResult.Yes)
+            {
+                new FormProducts().Show();
+            }
+            else
+            {
+                MessageBox.Show("Nicht berechntigter Zugriff!");
+            }
         }
 
         private void ButtonPrintClick(object sender, EventArgs e)
