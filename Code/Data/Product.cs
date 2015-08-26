@@ -13,6 +13,8 @@ namespace PrettyCheckout.Data
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
+        public decimal PriceN { get; set; }
+        public decimal Vat { get; set; }
 
         public string ListViewKey 
         {

@@ -30,6 +30,8 @@ namespace PrettyCheckout.Dialogs
                 _textBoxCity.Text = Config.Get("cdata.city");
 
                 _textBoxDatabase.Text = Config.Get("database.path");
+
+                _checkBoxVat.Checked = Config.Get<bool>("billing.vat.enable");
             }
         }
 
@@ -47,7 +49,11 @@ namespace PrettyCheckout.Dialogs
             Config.Set("cdata.company", _textBoxCompany.Text);
             Config.Set("cdata.street", _textBoxStreet.Text);
             Config.Set("cdata.city", _textBoxCity.Text);
+
             Config.Set("database.path", _textBoxDatabase.Text);
+
+            Config.Set("billing.vat.enable", _checkBoxVat.Checked);
+
             Config.Save(Config.ConfigPath);
 
             DialogResult = DialogResult.OK;

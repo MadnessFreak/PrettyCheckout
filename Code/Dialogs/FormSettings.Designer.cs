@@ -44,10 +44,16 @@
             this._textBoxCompany = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this._buttonAccept = new System.Windows.Forms.Button();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this._checkBoxVat = new System.Windows.Forms.CheckBox();
             this._tabControl.SuspendLayout();
             this._tabPage1.SuspendLayout();
             this._groupBox2.SuspendLayout();
             this._groupBox1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // _tabControl
@@ -56,6 +62,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this._tabControl.Controls.Add(this._tabPage1);
+            this._tabControl.Controls.Add(this.tabPage1);
             this._tabControl.Location = new System.Drawing.Point(16, 15);
             this._tabControl.Margin = new System.Windows.Forms.Padding(4);
             this._tabControl.Name = "_tabControl";
@@ -218,6 +225,51 @@
             this._buttonAccept.UseVisualStyleBackColor = true;
             this._buttonAccept.Click += new System.EventHandler(this.ButtonAcceptClick);
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(347, 394);
+            this.tabPage1.TabIndex = 1;
+            this.tabPage1.Text = "Zahlungen";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this._checkBoxVat);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(333, 123);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Mehrwertsteuer";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.Location = new System.Drawing.Point(12, 21);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(308, 61);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Hier kannst du einstellen, ob die Mehrwertsteuer standartmäßig berehnet werden so" +
+    "ll.";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // _checkBoxVat
+            // 
+            this._checkBoxVat.Location = new System.Drawing.Point(15, 85);
+            this._checkBoxVat.Name = "_checkBoxVat";
+            this._checkBoxVat.Size = new System.Drawing.Size(305, 23);
+            this._checkBoxVat.TabIndex = 3;
+            this._checkBoxVat.Text = "Mehrwertsteuer berechnen";
+            this._checkBoxVat.UseVisualStyleBackColor = true;
+            // 
             // FormSettings
             // 
             this.AcceptButton = this._buttonAccept;
@@ -243,6 +295,8 @@
             this._groupBox2.PerformLayout();
             this._groupBox1.ResumeLayout(false);
             this._groupBox1.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -264,5 +318,9 @@
         private System.Windows.Forms.TextBox _textBoxDatabase;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox _checkBoxVat;
+        private System.Windows.Forms.Label label8;
     }
 }

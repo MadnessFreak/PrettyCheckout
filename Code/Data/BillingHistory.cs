@@ -53,7 +53,11 @@ namespace PrettyCheckout.Data
                     var bill = new Bill
                     (
                          DateTime.Parse(element.Attribute("Date").Value)
-                    );
+                    )
+                    {
+                        Total = element.Attribute("Total").Value.AsMoney()
+                    };
+
                     var products = element.Element("Products");
                     foreach (var sub in products.Elements())
                     {
@@ -81,6 +85,7 @@ namespace PrettyCheckout.Data
             {
                 var element = new XElement("Bill");
                 element.Add(new XAttribute("Date", bill.Date));
+                element.Add(new XAttribute("Total", bill.Total));
 
                 var products = new XElement("Products");
                 foreach (var billProduct in bill.Products)

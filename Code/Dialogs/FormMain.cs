@@ -49,6 +49,7 @@ namespace PrettyCheckout.Dialogs
         private void ClearAll()
         {
             Sum = 0;
+            CurrentBill = null;
 
             _textBoxTotalSum.Text = ProductHelper.DecimalFormat;
             _textBoxGiven.Text = ProductHelper.DecimalFormat;

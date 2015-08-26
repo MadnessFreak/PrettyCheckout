@@ -66,6 +66,8 @@ namespace PrettyCheckout.Data
                 element.Add(new XAttribute("ID", product.Index));
                 element.Add(new XAttribute("Name", product.Name));
                 element.Add(new XAttribute("Price", product.Price));
+                element.Add(new XAttribute("PriceN", product.PriceN));
+                element.Add(new XAttribute("Vat", product.Vat));
                 element.Add(new XElement("Description", new XCData(product.Description == null ? string.Empty : product.Description)));
                 
                 root.Add(element);

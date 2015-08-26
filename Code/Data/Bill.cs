@@ -19,6 +19,10 @@ namespace PrettyCheckout.Data
         /// Gets or sets the date of the bill.
         /// </summary>
         public DateTime Date { get; set; }
+        /// <summary>
+        /// Gets or sets the total of the bill.
+        /// </summary>
+        public decimal Total { get; set; }
 
         // Constructor
         /// <summary>
@@ -47,6 +51,7 @@ namespace PrettyCheckout.Data
 
         public void AddProduct(Product product, int count)
         {
+            Total += product.Price * count;
             if (Products.Find(p => p.Index == product.Index) != null)
             {
                 var temp = Products.Find(p => p.Index == product.Index);

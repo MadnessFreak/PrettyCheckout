@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using PrettyCheckout.Math;
+
 namespace PrettyCheckout.Dialogs.Controls
 {
     public class NumericTextBox : TextBox
@@ -88,6 +90,14 @@ namespace PrettyCheckout.Dialogs.Controls
                 Decimal.TryParse(this.Text, out dec);
 
                 return dec;
+            }
+        }
+
+        public decimal MoneyValue
+        {
+            get
+            {
+                return this.Text.AsMoney();
             }
         }
 

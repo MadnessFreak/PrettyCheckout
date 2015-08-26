@@ -23,6 +23,9 @@ namespace PrettyCheckout.Dialogs
             _textBoxUser.Text = "anonymous";
             _textBoxPassword.Focus();
             _textBoxPassword.Select();
+
+            DialogResult = DialogResult.Yes;
+            Close();
 #else
             _textBoxUser.Focus();
             _textBoxUser.Select();

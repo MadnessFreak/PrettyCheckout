@@ -41,8 +41,6 @@
             this._buttonProducts = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
-            this._textBoxProduct = new PrettyCheckout.Dialogs.Controls.NumericTextBox();
-            this._textBoxAmount = new PrettyCheckout.Dialogs.Controls.NumericTextBox();
             this._buttonNumF3 = new System.Windows.Forms.Button();
             this._buttonNumNine = new System.Windows.Forms.Button();
             this._buttonNumEight = new System.Windows.Forms.Button();
@@ -74,6 +72,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this._textBoxProduct = new PrettyCheckout.Dialogs.Controls.NumericTextBox();
+            this._textBoxAmount = new PrettyCheckout.Dialogs.Controls.NumericTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -201,6 +201,7 @@
             // 
             // _buttonProducts
             // 
+            this._buttonProducts.BackColor = System.Drawing.Color.Khaki;
             this._buttonProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._buttonProducts.Location = new System.Drawing.Point(12, 68);
             this._buttonProducts.Name = "_buttonProducts";
@@ -208,11 +209,12 @@
             this._buttonProducts.TabIndex = 23;
             this._buttonProducts.TabStop = false;
             this._buttonProducts.Text = "Produkte (F4)";
-            this._buttonProducts.UseVisualStyleBackColor = true;
+            this._buttonProducts.UseVisualStyleBackColor = false;
             this._buttonProducts.Click += new System.EventHandler(this.ButtonProductsClick);
             // 
             // button10
             // 
+            this.button10.BackColor = System.Drawing.Color.IndianRed;
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.Location = new System.Drawing.Point(174, 68);
             this.button10.Name = "button10";
@@ -220,10 +222,11 @@
             this.button10.TabIndex = 22;
             this.button10.TabStop = false;
             this.button10.Text = "Fehlbuchung (Entf)";
-            this.button10.UseVisualStyleBackColor = true;
+            this.button10.UseVisualStyleBackColor = false;
             // 
             // button9
             // 
+            this.button9.BackColor = System.Drawing.Color.YellowGreen;
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.Location = new System.Drawing.Point(12, 24);
             this.button9.Name = "button9";
@@ -231,42 +234,11 @@
             this.button9.TabIndex = 21;
             this.button9.TabStop = false;
             this.button9.Text = "Zwischensumme (F5)";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // _textBoxProduct
-            // 
-            this._textBoxProduct.AllowGroupSeparator = false;
-            this._textBoxProduct.AllowNegativeSign = false;
-            this._textBoxProduct.AllowSpace = false;
-            this._textBoxProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._textBoxProduct.Location = new System.Drawing.Point(12, 118);
-            this._textBoxProduct.Name = "_textBoxProduct";
-            this._textBoxProduct.Size = new System.Drawing.Size(156, 26);
-            this._textBoxProduct.TabIndex = 0;
-            this._textBoxProduct.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this._textBoxProduct.UseCurrency = false;
-            this._textBoxProduct.TextChanged += new System.EventHandler(this.TextBoxProductTextChanged);
-            this._textBoxProduct.Enter += new System.EventHandler(this.TextBoxProductEnter);
-            this._textBoxProduct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxProductKeyPress);
-            this._textBoxProduct.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TextBoxProductKeyUp);
-            // 
-            // _textBoxAmount
-            // 
-            this._textBoxAmount.AllowGroupSeparator = false;
-            this._textBoxAmount.AllowNegativeSign = false;
-            this._textBoxAmount.AllowSpace = false;
-            this._textBoxAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._textBoxAmount.Location = new System.Drawing.Point(194, 118);
-            this._textBoxAmount.Name = "_textBoxAmount";
-            this._textBoxAmount.Size = new System.Drawing.Size(55, 26);
-            this._textBoxAmount.TabIndex = 20;
-            this._textBoxAmount.Text = "1";
-            this._textBoxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this._textBoxAmount.UseCurrency = false;
-            this._textBoxAmount.Enter += new System.EventHandler(this.TextBoxAmountEnter);
+            this.button9.UseVisualStyleBackColor = false;
             // 
             // _buttonNumF3
             // 
+            this._buttonNumF3.BackColor = System.Drawing.Color.Khaki;
             this._buttonNumF3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._buttonNumF3.Location = new System.Drawing.Point(255, 112);
             this._buttonNumF3.Name = "_buttonNumF3";
@@ -274,7 +246,7 @@
             this._buttonNumF3.TabIndex = 19;
             this._buttonNumF3.TabStop = false;
             this._buttonNumF3.Text = "Suche (F3)";
-            this._buttonNumF3.UseVisualStyleBackColor = true;
+            this._buttonNumF3.UseVisualStyleBackColor = false;
             this._buttonNumF3.Click += new System.EventHandler(this.ButtonSearchClick);
             // 
             // _buttonNumNine
@@ -524,6 +496,7 @@
             // 
             // _buttonPrint
             // 
+            this._buttonPrint.BackColor = System.Drawing.Color.Khaki;
             this._buttonPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._buttonPrint.Location = new System.Drawing.Point(320, 68);
             this._buttonPrint.Name = "_buttonPrint";
@@ -531,11 +504,12 @@
             this._buttonPrint.TabIndex = 8;
             this._buttonPrint.TabStop = false;
             this._buttonPrint.Text = "Drucken (F7)";
-            this._buttonPrint.UseVisualStyleBackColor = true;
+            this._buttonPrint.UseVisualStyleBackColor = false;
             this._buttonPrint.Click += new System.EventHandler(this.ButtonPrintClick);
             // 
             // _buttonSettings
             // 
+            this._buttonSettings.BackColor = System.Drawing.Color.Khaki;
             this._buttonSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._buttonSettings.Location = new System.Drawing.Point(474, 68);
             this._buttonSettings.Name = "_buttonSettings";
@@ -543,22 +517,24 @@
             this._buttonSettings.TabIndex = 7;
             this._buttonSettings.TabStop = false;
             this._buttonSettings.Text = "Einstellungen";
-            this._buttonSettings.UseVisualStyleBackColor = true;
+            this._buttonSettings.UseVisualStyleBackColor = false;
             this._buttonSettings.Click += new System.EventHandler(this.ButtonSettingsClick);
             // 
             // button6
             // 
+            this.button6.BackColor = System.Drawing.Color.Khaki;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.Location = new System.Drawing.Point(166, 68);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(148, 38);
             this.button6.TabIndex = 6;
             this.button6.TabStop = false;
-            this.button6.Text = "Rabatt";
-            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Text = "Rabatt (F8)";
+            this.button6.UseVisualStyleBackColor = false;
             // 
             // _buttonBillHistory
             // 
+            this._buttonBillHistory.BackColor = System.Drawing.Color.Khaki;
             this._buttonBillHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._buttonBillHistory.Location = new System.Drawing.Point(12, 68);
             this._buttonBillHistory.Name = "_buttonBillHistory";
@@ -566,7 +542,7 @@
             this._buttonBillHistory.TabIndex = 5;
             this._buttonBillHistory.TabStop = false;
             this._buttonBillHistory.Text = "Historie";
-            this._buttonBillHistory.UseVisualStyleBackColor = true;
+            this._buttonBillHistory.UseVisualStyleBackColor = false;
             this._buttonBillHistory.Click += new System.EventHandler(this._buttonBillHistory_Click);
             // 
             // button4
@@ -612,6 +588,38 @@
             this.button1.TabStop = false;
             this.button1.Text = "unbelegt";
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // _textBoxProduct
+            // 
+            this._textBoxProduct.AllowGroupSeparator = false;
+            this._textBoxProduct.AllowNegativeSign = false;
+            this._textBoxProduct.AllowSpace = false;
+            this._textBoxProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._textBoxProduct.Location = new System.Drawing.Point(12, 118);
+            this._textBoxProduct.Name = "_textBoxProduct";
+            this._textBoxProduct.Size = new System.Drawing.Size(156, 26);
+            this._textBoxProduct.TabIndex = 0;
+            this._textBoxProduct.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this._textBoxProduct.UseCurrency = false;
+            this._textBoxProduct.TextChanged += new System.EventHandler(this.TextBoxProductTextChanged);
+            this._textBoxProduct.Enter += new System.EventHandler(this.TextBoxProductEnter);
+            this._textBoxProduct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxProductKeyPress);
+            this._textBoxProduct.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TextBoxProductKeyUp);
+            // 
+            // _textBoxAmount
+            // 
+            this._textBoxAmount.AllowGroupSeparator = false;
+            this._textBoxAmount.AllowNegativeSign = false;
+            this._textBoxAmount.AllowSpace = false;
+            this._textBoxAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._textBoxAmount.Location = new System.Drawing.Point(194, 118);
+            this._textBoxAmount.Name = "_textBoxAmount";
+            this._textBoxAmount.Size = new System.Drawing.Size(55, 26);
+            this._textBoxAmount.TabIndex = 20;
+            this._textBoxAmount.Text = "1";
+            this._textBoxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this._textBoxAmount.UseCurrency = false;
+            this._textBoxAmount.Enter += new System.EventHandler(this.TextBoxAmountEnter);
             // 
             // FormMain
             // 

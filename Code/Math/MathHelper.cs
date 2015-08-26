@@ -7,6 +7,23 @@ namespace PrettyCheckout.Math
 {
     public static class MathHelper
     {
+        public enum VAT
+        {
+            Zero = 00,
+            V7 = 07,
+            V19 = 19
+        }
+
+        public static decimal NetToGross(decimal value, decimal vat)
+        {
+            return value / (vat / 100 + 1); // N = B / (p / 100 + 1)
+        }
+
+        public static decimal GrossToNet(decimal value, decimal vat)
+        {
+            return value * (vat / 100 + 1); // B = N * (p / 100 + 1)
+        }
+
         public static bool IsNumeric(object Expression)
         {
             double retNum;
