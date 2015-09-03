@@ -51,6 +51,16 @@ namespace PrettyCheckout.Dialogs
             {
                 DialogResult = DialogResult.No;
             }
+#else
+            if (_textBoxUser.Text == "kasse" &&
+                _textBoxPassword.Text == "test123")
+            {
+                DialogResult = DialogResult.Yes;
+            }
+            else
+            {
+                DialogResult = DialogResult.No;
+            }
 #endif
 
             Close();
